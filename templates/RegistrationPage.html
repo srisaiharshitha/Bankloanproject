@@ -5,16 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bank Loan - Registration</title>
   <link rel="stylesheet" href="../static/css/Registrationpage.css"/>
-  <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body>
-          <button class="btn-primary" onclick="window.location.replace('/home')">Back</button>
-
   <div class="container">
     <div class="card">
       <div class="brand">
         <div class="logo"><img src="../static/images/logo.jpg"></div>
-
         <div>
           <h1>Bank Loan System — Registration</h1>
           <p class="lead">Create an account to apply for personal, vehicle, gold, home, education or business loans. All fields marked * are required.</p>
@@ -63,7 +59,7 @@ OTP Field (Hidden at first)
               <input id="dob" name="dob" type="date" required />
             </div>
             <div>
-              <label for="gender">Gender <span class="star">*</span></label>
+              <label for="gender">Gender</label>
               <select id="gender" name="gender">
                 <option value="">Prefer not to say</option>
                 <option>Male</option>
@@ -113,7 +109,7 @@ OTP Field (Hidden at first)
               </select>
             </div>
             <div>
-              <label for="income">Annual income (INR) <span class="star">*</span></label>
+              <label for="income">Annual income (INR)</label>
               <input id="income" name="income" type="number" min="0" placeholder="e.g. 500000" />
             </div>
           </div>
@@ -132,18 +128,18 @@ OTP Field (Hidden at first)
               </select>
             </div>
             <div>
-              <label for="amount">Loan amount (INR)<span class="star">*</span></label>
+              <label for="amount">Loan amount (INR)</label>
               <input id="amount" name="amount" type="number" min="0" placeholder="Amount you want" />
             </div>
           </div>
 
           <div style="margin-top:12px" class="form-grid">
             <div>
-              <label for="tenure">Preferred tenure (months)<span class="star">*</span></label>
+              <label for="tenure">Preferred tenure (months)</label>
               <input id="tenure" name="tenure" type="number" min="1" placeholder="e.g. 60" />
             </div>
             <div>
-              <label for="branch">Preferred branch<span class="star">*</span></label>
+              <label for="branch">Preferred branch</label>
               <input id="branch" name="branch" type="text" placeholder="City or branch name" />
             </div>
           </div>
@@ -154,7 +150,7 @@ OTP Field (Hidden at first)
 
           <div class="form-grid">
             <div>
-              <label for="username">Username<span class="star">*</span></label>
+              <label for="username">Username<span class="star">*</span</label>
               <input id="username" name="username" type="text" placeholder="Choose a username" required />
             </div>
             <div>
@@ -169,7 +165,7 @@ OTP Field (Hidden at first)
               <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Re-enter password" required />
             </div>
             <div>
-              <label for="securityQ">Security question<span class="star">*</span></label>
+              <label for="securityQ">Security question</label>
               <select id="securityQ" name="securityQ">
                 <option value="">Choose a question</option>
                 <option>Mother's maiden name</option>
@@ -181,11 +177,17 @@ OTP Field (Hidden at first)
           <div style="margin-top:12px">
             <label for="profileDoc">Upload KYC documents (Aadhaar / PAN / Passport)<span class="star">*</span</label>
             <div class="file-row">
-              <input id="profileDoc" name="profileDoc" type="file" accept="image/*,.pdf"  required /> <span class="star">*</span>
+              <input id="profileDoc" name="profileDoc" type="file" accept="image/*,.pdf" required />
               <div class="hint">Allowed: JPG, PNG, PDF. Max 5 MB each.</div>
             </div>
           </div>
-          
+          <!-- NEW: Profile Photo Upload Field -->
+<div style="margin-top:12px">
+    <label for="profilePic">Upload Profile Photo (Optional)</label>
+    <input id="profilePic" name="profilePic" type="file" accept="image/*" />
+    <div class="hint">Allowed: JPG, PNG only.</div>
+</div>
+
 
           <div style="margin-top: 16px;display:flex;align-items:flex-start;gap:8px">
             <input id="terms" name="terms" type="checkbox" required />
@@ -209,5 +211,5 @@ OTP Field (Hidden at first)
     <script src="../static/javascript/RegistrationPage.js"></script>
 
   </body>
-</html>                       
+</html>
 
