@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Loans — Bank Loan System</title>
+
+  <!-- BOOTSTRAP 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/ExploreLoans.css">
+  <link rel="stylesheet" href="../static/css/styles.css">
+  
+</head>
+
+<body>
+
+  <!-- Back Button -->
+  <button onclick="window.location.replace('/home')"
+    class="btn-primary "> Back</button>
+
+  <!-- Page Title -->
+  <div class="text-center mt-5">
+    <h1 class="page-title"><u>Explore Our Loan Products</u></h1>
+  </div>
+
+  <!-- Loan Cards -->
+  <div class="container mt-5">
+    <div class="row g-4">
+
+      <!-- Home Loan -->
+      <div class="col-md-4">
+        <div class="card loan-card border border-2 p-3 h-100 d-flex flex-column">
+          <div class="d-flex align-items-center gap-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/69/69524.png" class="loan-icon">
+            <div>
+              <h4 class="text-primary mb-1">🏠 Home Loan</h4>
+              <p class="text-muted small">Build or buy your dream home with low interest rates.</p>
+            </div>
+          </div>
+          <a href="/homeloan" class="btn btn-warning w-100 mt-auto btn-loan">View Details</a>
+        </div>
+      </div>
+
+      <!-- Gold Loan -->
+      <div class="col-md-4">
+        <div class="card loan-card border border-2 p-3 h-100 d-flex flex-column">
+          <div class="d-flex align-items-center gap-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135679.png" class="loan-icon">
+            <div>
+              <h4 class="text-primary mb-1">🏅 Gold Loan</h4>
+              <p class="text-muted small">Instant cash against gold with minimal paperwork.</p>
+            </div>
+          </div>
+          <a href="/goldloan" class="btn btn-warning w-100 mt-auto btn-loan">View Details</a>
+        </div>
+      </div>
+
+      <!-- Personal Loan -->
+      <div class="col-md-4">
+        <div class="card loan-card border border-2 p-3 h-100 d-flex flex-column">
+          <div class="d-flex align-items-center gap-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" class="loan-icon">
+            <div>
+              <h4 class="text-primary mb-1">💰 Personal Loan</h4>
+              <p class="text-muted small">Unsecured loans for medical, travel, or urgent needs.</p>
+            </div>
+          </div>
+          <a href="/personalloan" class="btn btn-warning w-100 mt-auto btn-loan">View Details</a>
+        </div>
+      </div>
+
+      <!-- Education Loan -->
+      <div class="col-md-4">
+        <div class="card loan-card border border-2 p-3 h-100 d-flex flex-column">
+          <div class="d-flex align-items-center gap-3">
+            <img src="../static/images/education.png" class="loan-icon">
+            <div>
+              <h4 class="text-primary mb-1">🎓 Education Loan</h4>
+              <p class="text-muted small">Loans with grace periods for tuition & expenses.</p>
+            </div>
+          </div>
+          <a href="/educationloan" class="btn btn-warning w-100 mt-auto btn-loan">View Details</a>
+        </div>
+      </div>
+
+      <!-- Vehicle Loan -->
+      <div class="col-md-4">
+        <div class="card loan-card border border-2 p-3 h-100 d-flex flex-column">
+          <div class="d-flex align-items-center gap-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/3063/3063823.png" class="loan-icon">
+            <div>
+              <h4 class="text-primary mb-1">🚗 Vehicle Loan</h4>
+              <p class="text-muted small">Finance your bike or car with easy EMI options.</p>
+            </div>
+          </div>
+          <a href="/vehicleloan" class="btn btn-warning w-100 mt-auto btn-loan">View Details</a>
+        </div>
+      </div>
+
+      <!-- Business Loan -->
+      <div class="col-md-4">
+        <div class="card loan-card border border-2 p-3 h-100 d-flex flex-column">
+          <div class="d-flex align-items-center gap-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/1997/1997928.png" class="loan-icon">
+            <div>
+              <h4 class="text-primary mb-1">🏢 Business Loan</h4>
+              <p class="text-muted small">Expand your business with loans up to ₹50 Lakhs.</p>
+            </div>
+          </div>
+          <a href="/businessloan" class="btn btn-warning w-100 mt-auto btn-loan">View Details</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

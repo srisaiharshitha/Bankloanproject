@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold Loan – 4* Digital Bank</title>
+<link rel="stylesheet" href="../static/css/GoldLoan.css"/>
+  <style>
+    /* Calculator Styles */
+.calc-box {
+  width: 300px;
+  margin-top: 20px;
+  background: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+.calc-box h2 {
+  text-align: center;
+  font-size: 17px;
+  color: #003c8f;
+  margin-bottom: 10px;
+}
+
+.calc-box label {
+  font-size: 12px;
+  font-weight: bold;
+  display: block;
+  margin-top: 6px;
+}
+
+.calc-box input,
+.calc-box select {
+  width: 100%;
+  padding: 6px;
+  font-size: 12px;
+  margin-top: 3px;
+  border-radius: 4px;
+  border: 1px solid #777;
+}
+
+.calc-box button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: none;
+  background: #003c8f;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 12px;
+  background: #e9f4ff;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  display: none;
+}
+  </style>
+  <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+
+<body>
+
+<!-- TOP PROGRESS BAR (ADDED FEATURE) -->
+<div id="loanProgressBar" style="
+  position:fixed;
+  top:0; left:0;
+  width:0%;
+  height:4px;
+  background:#e45d00;
+  transition:0.4s;
+  z-index:9999;">
+</div>
+
+<button class="back-btn" onclick="window.location.replace('/exploreloans')">Back</button>
+
+<div class="page">
+
+<div id="detailsPage" class="card">
+
+  <div class="flex-box">
+
+    <!-- LEFT SECTION -->
+    <div style="flex:1">
+      <h1 style="color:#0b3a66;">🏅 Gold Loan</h1>
+      <p style="color:#555; margin-top:8px;">
+        Instant cash against your gold with quick approval and minimal paperwork.
+      </p>
+
+      <h3 style="margin-top:25px; color:#0b3a66;">How it Works</h3>
+
+      <div class="step-box">
+        <div class="step-num">1</div>
+        <div><b>Pledge Gold</b><br>Bring gold for appraisal & valuation.</div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">2</div>
+        <div><b>Sign Agreement</b><br>Complete KYC & documentation.</div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">3</div>
+        <div><b>Disbursal</b><br>Instant loan amount will be given.</div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-num">4</div>
+        <div><b>Repayment & Release</b><br>Repay the loan & collect your gold safely.</div>
+      </div>
+
+      <h3 style="margin-top:20px;">Required Documents</h3>
+      <p>✔ ID Proof<br>✔ KYC<br>✔ Gold valuation at branch<br>✔ Same-day processing</p>
+<button 
+    class="btn-primary {% if applied and applied != 'gold' %} disabled-btn {% endif %}"
+    {% if applied and applied != 'gold' %} disabled {% else %}
+        onclick="location.href='/submit_gold_loan'"
+    {% endif %}
+>
+    Apply for Gold Loan
+</button>
+
+
+    </div>
+
+    <!-- RIGHT IMAGE BOX -->
+    <div class="right-box">
+      <img src="../static/images/GOLD.JPEG" alt="Gold Loan Image">
+      <h3 style="color:#b88a00;">Gold Loan</h3>
+      <p>Fast, secure & hassle-free funding against gold.</p>
+
+        <!-- Calculator added here -->
+              <div class="calc-box">
+        <h2>Interest Calculator</h2>
+
+        <label>Principal (₹)</label>
+        <input type="number" id="p" value="100000">
+
+        <label>Rate (% yearly)</label>
+        <input type="number" id="r" value="10">
+
+        <label>Time (Years)</label>
+        <input type="number" id="t" value="2">
+
+        <label>Compounding Frequency</label>
+        <select id="n">
+          <option value="1">Yearly</option>
+          <option value="2">Half-Yearly</option>
+          <option value="4">Quarterly</option>
+          <option value="12">Monthly</option>
+        </select>
+
+        <button onclick="calculate()">Calculate</button>
+
+        <div id="output" class="result"></div>
+      </div>
+         </div>
+
+  </div>
+
+</div>
+<!--  APPLICATION FORM PAGE -->
+
+
+<script src="../static/javascript/GoldLoan.js">
+ 
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>4Star Bank — Contact Us</title>
+  <link rel="stylesheet" href="../static/css/Contact.css"/>
+
+</head>
+<body>
+  <a class="back-btn" href="/home">Back</a>
+
+  <main class="container">
+
+    <!-- Heading -->
+    <section class="card">
+      <h1>Contact  4⭐ DIGITAL BANK</h1>
+      <p class="lead">If you need help with banking or loans, use the contact information or submit a quick request. We respond as soon as possible.</p>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="card" aria-labelledby="contactInfo">
+      <h2 id="contactInfo">Contact Information</h2>
+
+      <div class="info-list">
+        <div class="info-item">
+          <div class="badge">☎</div>
+          <div>
+            <div><strong>Customer Care</strong></div>
+            <div class="small">General Enquiries: <a href="tel:+911800123456">+91 1800 123 456</a><br>Mon–Sat 9:30 AM – 6:00 PM</div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="badge">💼</div>
+          <div>
+            <div><strong>Loan Support</strong></div>
+            <div class="small">Helpline: <a href="tel:+911122334455">+91 11 2233 4455</a><br>Email: loans@4starbank.example</div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="badge">⚠️</div>
+          <div>
+            <div><strong>Report Fraud / Block Card</strong></div>
+            <div class="small">Emergency (24x7): <a href="tel:+911800999000">+91 1800 999 000</a></div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="badge">📍</div>
+          <div>
+            <div><strong>Branch Locator</strong></div>
+            <div class="small"><a href="#">Find nearest branch & timings</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px">
+        <div class="social">
+          <a href="#">Twitter</a>
+          <a href="#">Facebook</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Instagram</a>
+        </div>
+        <p class="small" style="margin-top:12px">Your data is protected as per our Privacy Policy.</p>
+      </div>
+    </section>
+
+    <!-- Quick Contact Form Section (comes after contact info) -->
+    <section class="card" aria-labelledby="quickContactHeading">
+      <h2 id="quickContactHeading">Quick Contact Form</h2>
+      <p class="small">Send your query and we will contact you shortly.</p>
+
+      <form id="contactForm" autocomplete="on" novalidate>
+        <label class="small" for="name">Name<span class="star">*</span></label>
+        <input id="name" name="name" required placeholder="Your Name" />
+
+        <label class="small" for="phone">Phone<span class="star">*</span></label>
+        <input id="phone" name="phone" type="tel" placeholder="+91 9XXXXXXXXX" pattern="[0-9+ ]{7,20}" required />
+
+        <label class="small" for="email">Email<span class="star">*</span></label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" />
+
+        <label class="small" for="loan_type">Loan Type<span class="star">*</span></label>
+        <select id="loan_type" name="loan_type">
+          <option value="">Select (optional)</option>
+          <option>Home Loan</option>
+          <option>Gold Loan</option>
+          <option>Personal Loan</option>
+          <option>Education Loan</option>
+          <option>Vehicle Loan</option>
+          <option>Business Loan</option>
+        </select>
+
+        <label class="small" for="pref_time">Preferred Contact Time<span class="star">*</span></label>
+        <input id="pref_time" name="pref_time" placeholder="e.g., Mon 3–5 PM" />
+
+        <label class="small" for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Write your message here..."></textarea>
+
+        <button type="submit">Send Request</button>
+      </form>
+    </section>
+
+    <footer>
+      © 4Star Bank — Demo Only — All numbers & links are fake.
+    </footer>
+  </main>
+
+   <script src="../static/javascript/Contact.js"></script>
+
+</body>
+</html>

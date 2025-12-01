@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credit - Loan Website</title>
+  <link rel="stylesheet" href="../static/css/Homepage.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="../static/images/logo.jpg"> 4⭐ DIGITAL BANK</div>
+    <nav>
+      <ul>
+        <li><a href="/home"><i class="fa-solid fa-house-chimney"></i>  Home</a></li>
+        <li><a href="/aboutus"><i class="fa-solid fa-users"></i>  About Us</a></li>
+        <li><a href="/exploreloans"><i class="fa-solid fa-indian-rupee-sign"></i>  Explore loans</a></li>
+        <li><a href="/contact"><i class="fa-solid fa-phone-volume"></i>  Contact</a></li>
+     {% if session.get('user_name') %}
+<div class="user-dropdown">
+    <button class="user-btn">
+        👤 {{ session.get('user_name') }} ▼
+    </button>
+
+    <div class="dropdown-menu">
+        <a href="/profile">Profile</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+{% else %}
+<li><a href="/register" class="nav-btn"><i class="fa-solid fa-registered"></i> Register/Login</a></li>
+{% endif %}
+
+      </ul>
+    </nav>
+  </header>
+  <section class="container">
+    <div class="overlay"></div>
+    <div class="content">
+      <marquee><h1>WELCOME TO 4⭐ DIGITAL BANK</h1></marquee>
+      <h2>GET YOUR <span>LOAN</span> NOW</h2>
+      <p class="description">
+        Manage your finances with ease and security. Apply for loans online, track your application status, and get instant approvals — all from the comfort of your home.
+      </p>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Student Loan Application</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #fdf8e6;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        width: 80%;
+        margin: 40px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        font-size: 26px;
+        color: #0b3a66;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 6px;
+        display: block;
+        color: #333;
+    }
+
+    .row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 18px;
+    }
+
+    .field {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    input, select {
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+        outline: none;
+    }
+
+    input:focus, select:focus {
+        border-color: #0b3a66;
+    }
+
+    .btn-primary {
+        background: royalblue;
+        color: white;
+        padding: 12px 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .submit-btn {
+        background: #003cff;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        width: 200px;
+        margin-top: 15px;
+    }
+
+    /* SUCCESS BOX */
+    #successBox {
+        display: none;
+        width: 450px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    }
+
+    #successBox button {
+        background: #003cff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    /* OTP POPUP */
+    #otpBox {
+        display: none;
+        position: fixed;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        width: 320px;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        z-index: 9999;
+    }
+
+    #otpInput {
+        width: 90%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #aaa;
+        margin-top: 10px;
+    }
+
+    #verifyBtn {
+        background: #e45d00;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+    .star {
+        color: red;
+        font-size: 20px;
+        margin-left: 2px;
+    }
+    .btn-primary:hover { background: #0a47d1; }
+</style>
+<link rel="stylesheet" href="../static/css/styles.css">
+</head>
+
+<body>
+
+<div id="formSection" class="container">
+    <button class="btn-primary" onclick="window.location.href='/educationloan'">Back to Loan Details</button>
+
+    <h2>Student Loan Application</h2>
+
+    <form id="eduLoanForm" onsubmit="startOTP(event)" enctype="multipart/form-data">
+
+        <!-- PERSONAL DETAILS -->
+        <h3>Personal Details</h3>
+        <div class="row">
+            <div class="field">
+                <label>Full Name <span class="star">*</span></label>
+                <input name="fullName" required>
+            </div>
+            <div class="field">
+                <label>Email <span class="star">*</span></label>
+                <input name="email" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="field">
+                <label>Phone <span class="star">*</span></label>
+                <input name="phone" required>
+            </div>
+            <div class="field">
+                <label>DOB <span class="star">*</span></label>
+                <input name="dob" type="date" required>
+            </div>
+        </div>
+
+        <!-- COURSE DETAILS -->
+        <h3>Course Details</h3>
+        <div class="row">
+            <div class="field">
+                <label>Course Name <span class="star">*</span></label>
+                <input name="courseName" required>
+            </div>
+            <div class="field">
+                <label>University Name <span class="star">*</span></label>
+                <input name="universityName" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="field" style="flex: 0.5">
+                <label>Course Duration (Years) <span class="star">*</span></label>
+                <input name="courseDuration" type="number" required>
+            </div>
+            <div class="field"></div>
+        </div>
+
+        <!-- CO-APPLICANT -->
+        <h3>Co-Applicant Details</h3>
+        <div class="row">
+            <div class="field">
+                <label>Co-Applicant Name <span class="star">*</span></label>
+                <input name="coName" required>
+            </div>
+            <div class="field">
+                <label>Relationship <span class="star">*</span></label>
+                <select name="relationship" required>
+                    <option value="">Select</option>
+                    <option>Parent</option>
+                    <option>Guardian</option>
+                    <option>Spouse</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="submit-btn">Submit Application</button>
+    </form>
+</div>
+
+<!-- SUCCESS MESSAGE -->
+<div id="successBox">
+    <h2>Application Submitted Successfully!</h2>
+    <p>Thank you, <strong id="successName"></strong>.<br>Your Student Loan application has been received.</p>
+    <button onclick="window.location.href='/educationloan'">Okay</button>
+</div>
+
+<!-- OTP BOX -->
+<div id="otpBox">
+    <h3>Enter OTP</h3>
+    <p>Your OTP is: <strong id="otpValue"></strong></p>
+    <input id="otpInput" placeholder="Enter OTP">
+    <button id="verifyBtn" onclick="verifyOTP()">Verify</button>
+</div>
+<!-- OTP VERIFIED POPUP -->
+<div id="otpSuccessPopup" style="
+    display:none;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 25px;
+    width: 300px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.25);
+    z-index: 9999;
+">
+    <h3 style="margin-bottom: 10px;">OTP Verified Successfully!</h3>
+
+    <button onclick="closeOtpSuccessPopup()" 
+        style="background:#003cff; color:white;
+               padding:10px 20px; border:none;
+               border-radius:8px; cursor:pointer;">
+        Okay
+    </button>
+</div>
+
+<script>
+let generatedOTP = "";
+
+// SHOW OTP POPUP
+function startOTP(event) {
+    event.preventDefault();
+
+    generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
+    document.getElementById("otpValue").innerText = generatedOTP;
+    document.getElementById("otpBox").style.display = "block";
+}
+
+// VERIFY OTP & SUBMIT
+function verifyOTP() {
+    let entered = document.getElementById("otpInput").value;
+
+    if (entered !== generatedOTP) {
+        alert("❌Incorrect OTP!");
+        return;
+    }
+alert("✅ OTP Verified Successfully!");
+
+    document.getElementById("otpBox").style.display = "none";
+    document.getElementById("otpSuccessPopup").style.display = "block";
+}
+    function closeOtpSuccessPopup() {
+    document.getElementById("otpSuccessPopup").style.display = "none";
+
+    // Continue with form submission
+    let formData = new FormData(document.getElementById("eduLoanForm"));
+
+    fetch("/submit_education_loan", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("formSection").style.display = "none";
+        document.getElementById("successBox").style.display = "block";
+        document.getElementById("successName").innerText = data.name;
+    });
+}
+
+</script>
+
+</body>
+</html>

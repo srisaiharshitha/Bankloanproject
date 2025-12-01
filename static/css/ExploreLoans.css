@@ -1,0 +1,53 @@
+
+    body {
+      background: linear-gradient(90deg, #e3f2fd 0%, #f8f9fa 100%);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .loan-card {
+      transition: 0.3s ease-in-out;
+      border-radius: 15px;
+    }
+
+    .loan-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 25px rgba(226,87,32,0.25);
+      border-color: rgb(7, 7, 255) !important;
+    }
+
+    .loan-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 10px;
+    }
+
+    .btn-loan {
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .page-title {
+      font-weight: 800;
+      font-size: 36px;
+      color: blue; 
+      text-shadow: 2px 2px 5px rgb(109, 109, 224);
+    }
+
+  .back-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: blue;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+    /* Change Bootstrap primary color text */
+    .text-primary{
+      color: blue ;
+      font-weight: bold;
+    }
+

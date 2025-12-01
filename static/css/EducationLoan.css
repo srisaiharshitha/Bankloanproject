@@ -1,0 +1,302 @@
+
+/* ROOT COLORS & VARIABLES */
+:root {
+    --primary: blue;
+    --primary-light:blue;
+    --gradient: linear-gradient(135deg,blue, blue);
+    --muted: #555;
+    --radius: 14px;
+    --bg-light: #eef4fb;
+}
+
+/* BODY */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    background: var(--bg-light);
+    color: #333;
+}
+
+/* PAGE WRAPPER */
+.page {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+/****************************************
+ TOP FIXED BACK BUTTON
+*****************************************/
+.top-back-btn {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    background: var(--gradient);
+    color: white;
+    padding: 9px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 16px rgba(0,0,0,0.20);
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+    z-index: 999;
+}
+.top-back-btn:hover {
+    transform: translateY(-3px);
+}
+
+/****************************************
+ DETAILS SECTION CARD STYLING
+*****************************************/
+.details-section .card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 35px;
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+.sidebar-img {
+    width: 100%;
+    height: 500px;
+    border-radius: var(--radius);
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+/****************************************
+ HEADINGS
+*****************************************/
+h1 {
+    color: var(--primary);
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 25px;
+    font-size: 22px;
+    color: var(--primary);
+    border-left: 5px solid var(--primary);
+    padding-left: 10px;
+}
+
+h3 {
+    color: var(--primary-light);
+    margin-top: 20px;
+}
+
+/****************************************
+ LEAD PARAGRAPH
+*****************************************/
+p.lead {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+/****************************************
+ BENEFITS LIST
+*****************************************/
+.benefit-list {
+    margin-top: 12px;
+    padding-left: 0;
+}
+
+.benefit-item {
+    background: #f9fbff;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--primary);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    font-size: 15px;
+}
+
+/****************************************
+ STEP-BY-STEP TIMELINE
+*****************************************/
+.steps {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.step .text {
+    display: flex;
+    flex-direction: column;
+}
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.step .num {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow:2px 2px 2px rgb(240, 119, 139);
+}
+
+.step-desc {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 3px;
+}
+/****************************************
+ FORM CARD STYLING
+*****************************************/
+#formSection .card {
+    background: #fff;
+    padding: 35px;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+    animation: slideUp 0.6s ease;
+}
+
+/* Back Link */
+.back-link {
+    color: var(--primary);
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.back-link:hover {
+    color: var(--primary-light);
+}
+
+/****************************************
+ FORM CONTAINER
+*****************************************/
+.form-container {
+    max-width: 700px;
+    margin: auto;
+}
+
+/****************************************
+ FORM INPUTS
+*****************************************/
+.section-block {
+    border-top: 2px dashed #dce5f5;
+    padding-top: 20px;
+    margin-top: 18px;
+}
+
+.form-row {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+input, select, textarea {
+    padding: 12px;
+    border-radius: var(--radius);
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: 0.3s;
+    background: #fbfdff;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 8px rgba(0, 86, 179, 0.3);
+}
+
+/* small helper for two-column groups */
+.row-2 {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+.row-2 .col {
+    flex: 1 1 0;
+}
+
+/****************************************
+ SUBMIT BUTTON
+*****************************************/
+button.submit-btn {
+    background: var(--gradient);
+    color: white;
+    padding: 14px;
+    font-size: 18px;
+    border: none;
+    border-radius: var(--radius);
+    width: 100%;
+    cursor: pointer;
+    margin-top: 25px;
+    box-shadow: 2px 2px 2px rgb(240, 119, 139);
+    transition: 0.3s;
+
+}
+
+/****************************************
+ SUCCESS MESSAGE
+*****************************************/
+.success-msg {
+    display: none;
+    margin-top: 20px;
+    background: #d4f8d4;
+    padding: 18px;
+    border-radius: var(--radius);
+    color: green;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+    text-align: center;
+}
+.star{
+    color: red;
+    font-size:20px;
+    margin-left: 2px;
+}
+
+/****************************************
+ ANIMATIONS
+*****************************************/
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/****************************************
+ RESPONSIVE DESIGN
+*****************************************/
+@media(max-width: 900px){
+    .details-section .card {
+        grid-template-columns: 1fr;
+    }
+    .sidebar-img {
+        height: 330px;
+    }
+    .row-2 { flex-direction: column; }
+}

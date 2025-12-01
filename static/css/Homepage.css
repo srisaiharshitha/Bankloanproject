@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 30px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.logo {
+  font-size: 40px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0%;
+  align-items: center;
+  display: flex;
+}
+.logo img{
+  width: 65px;
+  height: 15%;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: blue;
+}
+
+.contact span {
+  background: #f9a825;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* Hero Section */
+.container {
+  position: relative;
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.content {
+  position: relative;
+  text-align: center;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 55px;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.container .content {
+  position: absolute;
+  top: 35%; /* adjust vertical position of both headings */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+/* Style for GET YOUR LOAN NOW */
+.container .content h1 {
+  font-size: 55px;
+  font-weight: bold;
+  color:  rgb(241, 231, 43);;
+  margin-top: 0; 
+  text-shadow: 4px 5px 3px red;
+}
+.container .content h2 {
+  font-size: 45px;
+  font-weight: bold;
+  color: white;
+  margin-top: 0; /* remove extra gap */
+}
+
+.container .content span {
+  color: #f9a825; /* yellow/orange for LOAN */
+}
+.slide-image {
+    opacity: 0;
+    animation: slideIn 1s ease-out forwards;
+}
+.slide-image {
+    opacity: 0;
+    animation: slideIn 1s ease-out forwards;
+}
+.steps{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.steps:hover .num {
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #ff6a00; }
+    100% { text-shadow: 0 0 15px #ff9900; }
+}
+
+.effect-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.details-section {
+    opacity: 0;
+    animation: fadeIn 1.2s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+.slide-image {
+    opacity: 0;
+    animation: slideIn 1s ease-out forwards;
+}
+@keyframes slideIn {
+    from { transform: translateX(40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+  
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-btn {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    min-width: 140px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+    z-index: 999;
+    padding: 8px 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.user-dropdown:hover .dropdown-menu {
+    display: block;
+}

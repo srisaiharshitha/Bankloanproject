@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Loan Application</title>
+    <link rel="stylesheet" href="../static/css/business_application_form.css"/>
+     <style>
+        .submit-btn {
+        background: #003cff;
+        color: white;
+        padding: 12px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 15px;
+        width: 200px;
+    }
+
+    .submit-btn:hover {
+        background: #0030c2;
+    }
+
+    /* SUCCESS CARD */
+    #successBox {
+        display: none;
+        width: 400px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+       box-shadow: 0 3px 10px rgba(0,0,0,0.15);    }
+
+    .success-btn {
+        background: #177fe1;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+    }
+
+     </style>
+     <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+
+    <div class="form-container">
+                  <button class="btn-primary" onclick="window.location.href='/businessloan'" >Back to Loan Details</button>
+
+<form id="businessLoanForm"  
+      action="/submit_business_loan"  
+      method="POST"  
+      enctype="multipart/form-data"  
+      onsubmit="startOTP(event)">
+            <h1>Business Loan Application</h1>
+            <p>Please provide accurate details for all required fields (<span class="star">*</span>).</p>
+
+            <section class="section-block">
+                <h2>Loan Requirements</h2>
+                <div class="form-group">
+                    <label for="loanAmount">Loan Amount Required (INR)<span class="star">*</span></label>
+                    <input type="number" id="loanAmount" name="loanAmount" min="50000" required>
+                </div>
+                <div class="form-group">
+                    <label for="loanPurpose">Purpose of Loan<span class="star">*</span></label>
+                    <select id="loanPurpose" name="loanPurpose" required>
+                        <option value="">Select Purpose</option>
+                        <option value="expansion">Business Expansion</option>
+                        <option value="equipment">Equipment Purchase</option>
+                        <option value="working_capital">Working Capital</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <h2>Business Details</h2>
+                <div class="form-group">
+                    <label for="businessName">Legal Business Name<span class="star">*</span></label>
+                    <input type="text" id="businessName" name="businessName" required>
+                </div>
+                <div class="form-group">
+                    <label for="businessType">Business Type<span class="star">*</span></label>
+                    <input type="text" id="businessType" name="businessType" placeholder="e.g., Private Limited, Proprietorship" required>
+                </div>
+                <div class="form-group">
+                    <label for="regDate">Business Registration Date<span class="star">*</span></label>
+                    <input type="date" id="regDate" name="regDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="industry">Industry Type<span class="star">*</span></label>
+                    <input type="text" id="industry" name="industry" required>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <h2>Financial Information</h2>
+                <div class="form-group">
+                    <label for="annualTurnover">Annual Turnover (Last Fiscal Year)<span class="star">*</span></label>
+                    <input type="number" id="annualTurnover" name="annualTurnover" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="bankStatements">Upload Last 6 Months Bank Statements<span class="star">*</span></label>
+                    <input type="file" id="bankStatements" name="bankStatements" accept=".pdf,.png,.jpg" multiple required>
+                </div>
+            </section>
+               <!-- OTP POPUP -->
+<div id="otpBox" style="
+    display:none;
+    position:fixed;
+    top:50%; left:50%;
+    transform:translate(-50%, -50%);
+    background:white;
+    padding:25px;
+    width:320px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(210, 14, 14, 0.25);
+    z-index:9999;">
+    <h3>Enter OTP</h3>
+    <p>Your OTP is: <strong id="otpValue"></strong></p>
+    
+    <input id="otpInput" type="number" placeholder="Enter OTP"
+           style="padding:10px; width:90%; border-radius:8px; border:1px solid #ccc;">
+    
+    <button onclick="verifyOTP()" 
+            style="margin-top:12px; background:#e45d00; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">
+        Verify
+    </button>
+</div>
+
+<!-- SUCCESS BOX -->
+
+            <button type="submit">Apply for Loan</button>
+        </form>
+
+    </div>
+    <div id="successBox">
+    <h2>Application Submitted Successfully!</h2>
+
+    <p>
+        Thank you, <strong><span id="resName"></span></strong>.<br>
+        Your Business Loan application has been received.
+    </p>
+
+    <p>We will contact you shortly at: <strong><span id="resPhone"></span></strong></p>
+
+    <button class="success-btn" onclick="window.location.href='/businessloan'">Okay</button>
+</div>
+
+</body>
+<script>
+let generatedOTP = "";
+
+function startOTP(event) {
+    event.preventDefault();
+
+    generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
+
+    document.getElementById("otpValue").innerText = generatedOTP;
+    document.getElementById("otpBox").style.display = "block";
+}
+
+function verifyOTP() {
+    let entered = document.getElementById("otpInput").value;
+
+    if (entered !== generatedOTP) {
+        alert("❌ Incorrect OTP!");
+        return;
+    }
+
+    alert("✅ OTP Verified!");
+
+    document.getElementById("otpBox").style.display = "none";
+
+    // FIXED — CORRECT FORM ID
+    let formData = new FormData(document.getElementById("businessLoanForm"));
+
+    fetch("/submit_business_loan", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "success") {
+
+            // Hide form
+            document.querySelector(".form-container").style.display = "none";
+
+            // Show success box
+            document.getElementById("successBox").style.display = "block";
+
+            document.getElementById("successName").innerText = data.businessName;
+        } else {
+            alert("Error: " + data.message);
+        }
+    });
+}
+</script>
+
+
+</html>
+

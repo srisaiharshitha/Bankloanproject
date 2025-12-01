@@ -1,0 +1,23 @@
+.btn-primary {
+        background: royalblue;
+        color: white;
+        padding: 12px 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    .btn-primary:hover { background: #0a47d1; }
+    .disabled-btn {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+    pointer-events: none;
+}
+.star{
+    color: red;
+    font-size:20px;
+    margin-left: 12px;
+}

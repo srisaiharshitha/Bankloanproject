@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home Loan — Bank Loan System</title>
+
+  <style>
+/* =============== CALCULATOR STYLES =============== */
+.calc-box {
+  width: 300px;
+  margin-top: 20px;
+  background: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+.calc-box h2 {
+  text-align: center;
+  font-size: 17px;
+  color: #003c8f;
+  margin-bottom: 10px;
+}
+
+.calc-box label {
+  font-size: 12px;
+  font-weight: bold;
+  display: block;
+  margin-top: 6px;
+}
+
+.calc-box input,
+.calc-box select {
+  width: 100%;
+  padding: 6px;
+  font-size: 12px;
+  margin-top: 3px;
+  border-radius: 4px;
+  border: 1px solid #777;
+}
+
+.calc-box button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: none;
+  background: #003c8f;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 12px;
+  background: #e9f4ff;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  display: none;
+}
+
+/* =============== PAGE LAYOUT FIX =============== */
+.page {
+  padding: 20px;
+}
+
+.card {
+  display: flex;
+  gap: 30px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.main-content {
+  flex: 2;
+}
+
+.sidebar-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-box img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #003cff;
+  color:white;
+  padding: 10px 22px;
+  border-radius: 10px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+  </style>
+
+  <link rel="stylesheet" href="../static/css/HomeLoan.css"/>
+  <link rel="stylesheet" href="../static/css/styles.css">
+
+</head>
+
+<body>
+
+<button class="back-btn" onclick="window.location.href='/exploreloans'">Back</button>
+
+<div class="page">
+
+  <div class="details-section" id="detailsSection">
+    <div class="card">
+
+      <!-- LEFT CONTENT -->
+      <div class="main-content">
+
+        <h1>🏠 Home Loan</h1>
+        <p class="lead">Long-tenure loans for buying or constructing your home. Competitive rates and flexible EMI options.</p>
+
+        <h2>What is a Home Loan?</h2>
+        <p style="color:#555; line-height:1.7;">
+          A home loan is a <strong style="color:#003cff;">secured loan</strong> that helps you buy or build a house.
+        </p>
+
+        <!-- BENEFITS -->
+        <h2>Key Benefits</h2>
+        <div class="benefits-grid">
+          <div class="benefit-item"><strong>🏡 Own a Home Sooner</strong><p>Buy a property faster.</p></div>
+          <div class="benefit-item"><strong>💰 Lower Rates</strong><p>Repayment up to 30 years.</p></div>
+          <div class="benefit-item"><strong>📋 Tax Savings</strong><p>Section 80C and 24 benefits.</p></div>
+          <div class="benefit-item"><strong>🏦 Flexible Options</strong><p>Floating or fixed EMIs.</p></div>
+        </div>
+
+        <h2>Required Documents</h2>
+        <ul>
+          <li>ID Proof, Address Proof, Income Proof</li>
+          <li>Property Papers</li>
+        </ul>
+<button  class="btn-primary"
+    onclick="location.href='/submit_home_loan'"
+    
+>
+    Apply for Home Loan
+</button>
+
+
+      </div>
+
+      <!-- RIGHT SIDEBAR = IMAGE + CALCULATOR -->
+      <div class="sidebar-box">
+
+        <!-- IMAGE -->
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=500&fit=crop"
+             alt="Home Loan">
+
+        <!-- CALCULATOR (NOW BELOW IMAGE!) -->
+        <div class="calc-box">
+          <h2>Interest Calculator</h2>
+
+          <label>Principal (₹)</label>
+          <input type="number" id="p" value="100000">
+
+          <label>Rate (% yearly)</label>
+          <input type="number" id="r" value="10">
+
+          <label>Time (Years)</label>
+          <input type="number" id="t" value="2">
+
+          <label>Compounding Frequency</label>
+          <select id="n">
+            <option value="1">Yearly</option>
+            <option value="2">Half-Yearly</option>
+            <option value="4">Quarterly</option>
+            <option value="12">Monthly</option>
+          </select>
+
+          <button onclick="calculate()">Calculate</button>
+
+          <div id="output" class="result"></div>
+        </div>
+
+      </div> <!-- END SIDEBAR -->
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+function calculate() {
+  let P = parseFloat(document.getElementById("p").value);
+  let R = parseFloat(document.getElementById("r").value);
+  let T = parseFloat(document.getElementById("t").value);
+  let N = parseFloat(document.getElementById("n").value);
+
+  let CI_Amt = P * Math.pow((1 + (R / 100 / N)), (N * T));
+  let CI = CI_Amt - P;
+
+  document.getElementById("output").style.display = "block";
+  document.getElementById("output").innerHTML =
+    `<b>Compound Interest:</b> ₹${CI.toFixed(2)}<br>
+     <b>Total Amount:</b> ₹${CI_Amt.toFixed(2)}`;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+.profile-container {
+    width: 420px;
+    margin: 50px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #004c99;
+    margin-bottom: 15px;
+}
+
+.username {
+    color: #003366;
+    font-size: 24px;
+}
+
+.info-box {
+    text-align: left;
+    margin-top: 15px;
+}
+
+.info-box p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.info-box span {
+    font-weight: bold;
+    color: #003366;
+}
+
+.logout-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 20px;
+    background: #cc0000;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.logout-btn:hover {
+    background: #990000;
+}
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #004c99;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    background: #003366;
+}

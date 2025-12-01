@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vehicle Loan Application — Bank Loan System</title>
+
+  <link rel="stylesheet" href="../static/css/VehicleLoan.css"/>
+
+<style>
+
+/* ------------ CALCULATOR BOX ------------ */
+.calc-box {
+  width: 300px;
+  margin-top: 20px;
+  background: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+.calc-box h2 {
+  text-align: center;
+  font-size: 17px;
+  color: #003c8f;
+  margin-bottom: 10px;
+}
+
+.calc-box label {
+  font-size: 12px;
+  font-weight: bold;
+  display: block;
+  margin-top: 6px;
+}
+
+.calc-box input,
+.calc-box select {
+  width: 100%;
+  padding: 6px;
+  font-size: 12px;
+  margin-top: 3px;
+  border-radius: 4px;
+  border: 1px solid #777;
+}
+
+.calc-box button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: none;
+  background: #003c8f;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 12px;
+  background: #e9f4ff;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  display: none;
+}
+
+/* ------------ LAYOUT FIX ------------ */
+.card {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+  padding: 22px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.left-box {
+  flex: 1.3;
+}
+
+.right-box {
+  flex: 0.9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-box img {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 12px;
+}
+
+.top-back-btn {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  background: blue;
+  color:white;
+  border:none;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<button class="top-back-btn" onclick="window.location.replace('/exploreloans')">Back</button>
+
+<div class="page">
+
+  <div class="details-section">
+
+    <div class="card">
+
+      <!-- =====================================
+           LEFT COLUMN (Loan Details)
+      ====================================== -->
+      <div class="left-box">
+
+        <h1>🚗 Vehicle Loan</h1>
+        <p class="lead">Purchase a car or bike with attractive EMIs and easy documentation.</p>
+
+        <h3>How it Works</h3>
+        <div class="steps">
+          <div class="step"><div class="num">1</div><div><strong>Choose vehicle & get quotation</strong></div></div>
+          <div class="step"><div class="num">2</div><div><strong>Apply & verify</strong></div></div>
+          <div class="step"><div class="num">3</div><div><strong>Sanction letter</strong></div></div>
+          <div class="step"><div class="num">4</div><div><strong>Disbursal to dealer</strong></div></div>
+        </div>
+
+        <h3>Required Documents</h3>
+        <ul>
+          <li><strong>ID Proof:</strong> Aadhaar, PAN, Passport</li>
+          <li><strong>Income Proof:</strong> Salary slips or bank statements</li>
+          <li><strong>Vehicle Documents:</strong> Dealer invoice/quotation</li>
+          <li><strong>Address Proof:</strong> Aadhaar/Utility bills</li>
+        </ul>
+
+        <p><strong>Processing time:</strong> 1–5 business days</p>
+
+        <button class="apply-btn-main"
+                onclick="window.location.replace('/submit_vehicle_loan')">
+          Apply for Vehicle Loan
+        </button>
+
+      </div>
+
+      <!-- =====================================
+           RIGHT COLUMN (IMAGE + CALCULATOR)
+      ====================================== -->
+      <div class="right-box">
+
+        <img src="../static/images/VEHICLE LOAN.jpg" alt="Vehicle Loan">
+
+        <!-- Calculator placed BELOW image -->
+        <div class="calc-box">
+
+          <h2>Interest Calculator</h2>
+
+          <label>Principal (₹)</label>
+          <input type="number" id="p" value="100000">
+
+          <label>Rate (% yearly)</label>
+          <input type="number" id="r" value="10">
+
+          <label>Time (Years)</label>
+          <input type="number" id="t" value="2">
+
+          <label>Compounding Frequency</label>
+          <select id="n">
+            <option value="1">Yearly</option>
+            <option value="2">Half-Yearly</option>
+            <option value="4">Quarterly</option>
+            <option value="12">Monthly</option>
+          </select>
+
+          <button onclick="calculate()">Calculate</button>
+
+          <div id="output" class="result"></div>
+
+        </div>
+
+      </div> <!-- END RIGHT BOX -->
+
+    </div> <!-- END CARD -->
+
+  </div>
+
+</div>
+
+<script>
+// Calculator Script
+function calculate() {
+  let P = parseFloat(document.getElementById("p").value);
+  let R = parseFloat(document.getElementById("r").value);
+  let T = parseFloat(document.getElementById("t").value);
+  let N = parseFloat(document.getElementById("n").value);
+
+  let CI_Amt = P * Math.pow((1 + (R / 100 / N)), (N * T));
+  let CI = CI_Amt - P;
+
+  document.getElementById("output").style.display = "block";
+  document.getElementById("output").innerHTML =
+    `<b>Compound Interest:</b> ₹${CI.toFixed(2)}<br>
+     <b>Total Amount:</b> ₹${CI_Amt.toFixed(2)}`;
+}
+</script>
+
+<script src="../static/javascript/VehicleLoan.js"></script>
+
+</body>
+</html>

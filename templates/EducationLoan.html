@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education Loan Application</title>
+<link rel="stylesheet" href="../static/css/EducationLoan.css"/>
+
+<style>
+/* ---------- CALCULATOR STYLES ---------- */
+.calc-box {
+  width: 300px;
+  margin-top: 20px;
+  background: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+.calc-box h2 {
+  text-align: center;
+  font-size: 17px;
+  color: #003c8f;
+  margin-bottom: 10px;
+}
+
+.calc-box label {
+  font-size: 12px;
+  font-weight: bold;
+  display: block;
+  margin-top: 6px;
+}
+
+.calc-box input,
+.calc-box select {
+  width: 100%;
+  padding: 6px;
+  font-size: 12px;
+  margin-top: 3px;
+  border-radius: 4px;
+  border: 1px solid #777;
+}
+
+.calc-box button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: none;
+  background: #003c8f;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 12px;
+  background: #e9f4ff;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  display: none;
+}
+
+/* ---------- PAGE STRUCTURE FIX ---------- */
+.card {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.left-box {
+    flex: 2;
+}
+
+.right-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-img {
+  width: 100%;
+  border-radius: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<button class="top-back-btn" onclick="window.location.replace('/exploreloans')" aria-label="Back">Back</button>
+
+<div class="page">
+
+<!-- =================== DETAILS SECTION =================== -->
+<section class="details-section" id="detailsSection">
+
+<div class="card">
+
+    <!-- LEFT SIDE CONTENT -->
+    <div class="left-box">
+
+        <h1>🎓 Education Loan</h1>
+        <p class="lead">Support for higher education — affordable EMIs and moratorium options.</p>
+
+        <h2>Online Educational Loan Application</h2>
+        <p>Submit your education loan online with complete documentation upload.</p>
+
+        <h2>Key Benefits</h2>
+        <ul>
+            <li>Apply anytime from home</li>
+            <li>Upload documents online</li>
+            <li>Digital KYC verification</li>
+            <li>Fast approval</li>
+        </ul>
+
+        <h3>Key Benefits of Applying from Home:</h3>
+        <div class="benefit-list">
+            <div class="benefit-item"><strong>Convenience:</strong> Apply anytime, anywhere.</div>
+            <div class="benefit-item"><strong>Time-Saving:</strong> Avoid queues.</div>
+            <div class="benefit-item"><strong>Digital Process:</strong> Upload documents online.</div>
+        </div>
+
+        <h3>Required Documentation:</h3>
+        <div class="benefit-list">
+            <div class="benefit-item"><strong>Academic Records</strong></div>
+            <div class="benefit-item"><strong>Proof of Admission</strong></div>
+            <div class="benefit-item"><strong>KYC Documents</strong></div>
+            <div class="benefit-item"><strong>Income Proof</strong></div>
+        </div>
+
+        <h3>Step-by-Step Process</h3>
+        <div class="steps">
+            <div class="step">
+                <div class="num">1</div>
+                <div><strong>Apply Online</strong></div>
+            </div>
+            <div class="step">
+                <div class="num">2</div>
+                <div><strong>Upload Documents</strong></div>
+            </div>
+            <div class="step">
+                <div class="num">3</div>
+                <div><strong>Verification</strong></div>
+            </div>
+            <div class="step">
+                <div class="num">4</div>
+                <div><strong>Sanction</strong></div>
+            </div>
+        </div>
+
+        <!-- APPLY BUTTON -->
+        <button class="apply-btn"
+            onclick="window.location.replace('/submit_education_loan')"
+            style="
+            position: relative;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #003cff;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,255,0.3);
+        ">
+            Apply for Education Loan
+        </button>
+
+    </div>
+
+    <!-- RIGHT SIDE CONTENT = IMAGE + CALCULATOR -->
+    <div class="right-box">
+
+        <img src="../static/images/EDUCATION.jpeg" class="sidebar-img" alt="Students studying">
+
+        <!-- INTEREST CALCULATOR -->
+        <div class="calc-box">
+            <h2>Interest Calculator</h2>
+
+            <label>Principal (₹)</label>
+            <input type="number" id="p" value="100000">
+
+            <label>Rate (% yearly)</label>
+            <input type="number" id="r" value="10">
+
+            <label>Time (Years)</label>
+            <input type="number" id="t" value="2">
+
+            <label>Compounding Frequency</label>
+            <select id="n">
+                <option value="1">Yearly</option>
+                <option value="2">Half-Yearly</option>
+                <option value="4">Quarterly</option>
+                <option value="12">Monthly</option>
+            </select>
+
+            <button onclick="calculate()">Calculate</button>
+
+            <div id="output" class="result"></div>
+        </div>
+
+    </div>
+
+</div> <!-- END CARD -->
+
+</section>
+
+</div>
+
+<script>
+function calculate() {
+  let P = parseFloat(document.getElementById("p").value);
+  let R = parseFloat(document.getElementById("r").value);
+  let T = parseFloat(document.getElementById("t").value);
+  let N = parseFloat(document.getElementById("n").value);
+
+  let SI = (P * R * T) / 100;
+  let SI_Amt = P + SI;
+
+  let CI_Amt = P * Math.pow((1 + (R / 100 / N)), (N * T));
+  let CI = CI_Amt - P;
+
+  let combined = SI + CI;
+  let final = P + combined;
+
+  document.getElementById("output").style.display = "block";
+  document.getElementById("output").innerHTML =
+    `<b>Simple Interest:</b> ₹${SI.toFixed(2)}<br>
+     <b>Compound Interest:</b> ₹${CI.toFixed(2)}<br>
+     <b>Total Amount (CI):</b> ₹${CI_Amt.toFixed(2)}`;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+
+    :root {
+      --primary:#0b3a66;
+      --muted:#6c757d;
+    }
+    body{
+      font-family:'Segoe UI',sans-serif;
+      margin:0;
+      background:#f6fbff;
+    }
+    .page{ max-width:1200px; margin:30px auto; padding:20px; }
+
+    .card{
+      background:#fff;
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 12px 30px rgba(11,58,102,0.08);
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; transform: translateY(20px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+    /* SIDE-BY-SIDE IMAGE */
+    .content-wrapper{
+      display:flex;
+      gap:24px;
+    }
+    .main-content{ flex:2; }
+    .sidebar-image{ flex:1; }
+    .sidebar-image img{
+      width:100%;
+      border-radius:10px;
+      box-shadow:0 8px 20px rgba(11,58,102,0.15);
+      transition: transform .4s;
+    }
+    .sidebar-image img:hover{
+      transform: scale(1.03);
+    }
+
+    /* BENEFITS CARDS */
+    .benefits-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-bottom:20px;
+    }
+    .benefit-item{
+      background:#f8fbff;
+      padding:14px;
+      border-radius:10px;
+      border-left:4px solid #0b3a66;
+      transition: .3s;
+    }
+    .benefit-item:hover{
+      background:#eaf4ff;
+      transform: translateX(4px);
+    }
+
+    /* STEPS */
+    .steps .step{
+      display:flex;
+      gap:12px;
+      margin-bottom:16px;
+    }
+    .num{
+      background:blue;
+      color:white;
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-weight:600;
+      box-shadow: 2px 2px 2px rgb(245, 139, 157);
+    }
+
+    /* NEW SECTIONS ADDED */
+    .info-section{
+      background:#f4f9ff;
+      padding:16px;
+      border-radius:12px;
+      margin:20px 0;
+      border-left:5px solid #0b3a66;
+    }
+    .info-section h3{
+      margin:0 0 10px 0;
+      color:#0b3a66;
+    }
+    .info-section ul{
+      margin:0;
+      padding-left:18px;
+      color:#555;
+      line-height:1.7;
+    }
+    .info-section ul li{
+      margin-bottom:6px;
+    }
+
+    /* Apply Button */
+    .apply-btn-main {
+      background: blue;
+      color:white;
+      border:none;
+      padding:12px 22px;
+      border-radius:10px;
+      font-size:16px;
+      cursor:pointer;
+      margin-top:15px;
+      transition: .3s;
+      box-shadow: 0 8px 20px rgba(255, 107, 53, 0.25);
+    }
+    .apply-btn-main:hover{
+      background: blue;
+    }
+
+    /* Form Section */
+    #formSection{
+      display:none;
+    }
+
+    form{
+      background:#fff;
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 12px 30px rgba(11,58,102,0.08);
+    }
+
+    .form-row{
+      display:flex;
+      gap:12px;
+      margin-bottom:14px;
+    }
+    .field{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+    }
+    label{
+      font-size:14px;
+      font-weight:600;
+      margin-bottom:4px;
+    }
+    input,select,textarea{
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      font-size:14px;
+    }
+
+    .btn-primary{
+      background: blue;
+      color:white;
+      border:none;
+      padding:10px 16px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .btn-ghost{
+      background:white;
+      border:1px solid #d0d0d0;
+      padding:10px 16px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    .back-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: blue;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+    /* small helper text inside form */
+    .helper {
+      font-size:13px;
+      color:#666;
+      margin-top:6px;
+    }
+    .star{
+       color: red;
+    font-size:20px;
+    margin-left: 2px;
+}
+
+    /* small result text */
+    .result-okay { color: #0b3a66; font-weight:700; }
+    .result-no { color: blue; font-weight:700; }
+  

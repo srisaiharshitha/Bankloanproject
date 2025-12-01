@@ -1,0 +1,182 @@
+
+    :root{
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --primary: #0b6efd;
+      --accent: #7c3aed;
+      --muted: #58616b;
+      --text: #0f172a;
+      --maxw: 1200px;
+      --radius: 12px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg,var(--bg),#ffffff);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.85; /* long readable lines */
+      padding:28px;
+
+
+    }
+    
+    /* Stats */
+    .stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .stat{flex:1 1 140px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fffefc);text-align:center;border:1px solid rgba(255,106,0,0.06)}
+    .stat strong{display:block;font-size:18px;color:var(--dark)}
+
+    /* Values */
+    .values{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .value{flex:1 1 140px;padding:12px;border-radius:10px;background:linear-gradient(180deg,var(--glass),#fff)}
+
+
+    /* container gives long lines — wide max-width */
+    .container{
+      max-width:var(--maxw);
+      margin:0 auto;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:0 12px 30px rgba(15,23,42,0.06);
+      overflow:hidden;
+    }
+
+    header{
+      padding:34px 42px;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      color:white;
+    }
+    header h1{
+      margin:0;
+      font-size:26px;
+      letter-spacing:0.2px;
+    }
+    header p{
+      margin-top:10px;
+      color:rgba(255,255,255,0.95);
+      max-width: auto;
+      font-size:15px;
+    }
+
+    main{padding:34px 42px;}
+    /* Section styling */
+    .section{margin-bottom:26px}
+    .section h2{
+      font-size:20px;
+      color:var(--primary);
+      margin:0 0 12px 0;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    /* Paragraphs: long lines, justified for neat blocks */
+    .section p{
+      margin:0 0 12px 0;
+      font-size:15px;
+      text-align:justify;
+      text-justify:inter-word;
+      word-spacing:0.2px;
+    }
+
+    /* Lists */
+    ul{margin:8px 0 14px 22px;}
+    li{margin:8px 0;font-size:25px;color:var(--text);}
+
+    /* Loan cards grid */
+    .loans{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:12px;
+      margin-bottom:12px;
+    }
+    .loan{
+      background:linear-gradient(180deg, rgba(11,110,253,0.03), rgba(124,58,237,0.02));
+      border-left:4px solid var(--primary);
+      padding:14px;
+      border-radius:10px;
+      box-shadow:0 6px 18px rgba(2,6,23,0.03);
+    }
+    .loan h3{margin:0 0 8px 0;font-size:16px}
+    .loan p{margin:0;color:var(--muted);font-size:14px}
+    
+    /* Diagram style (simple) */
+    .diagram{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px}
+    .step{background:white;padding:12px 16px;border-radius:10px;box-shadow:0 8px 24px rgba(2,6,23,0.04);min-width:120px;text-align:center}
+    .step .icon{font-size:20px;margin-bottom:6px}
+    .muted{color:var(--muted);font-size:14px}
+
+    footer{padding:18px 42px;background:#fbfdff;border-top:1px solid #eef2ff;color:var(--muted);font-size:14px;text-align:center}
+
+    /* Responsive adjustments */
+    @media (max-width:980px){
+      .loans{grid-template-columns:1fr}
+      header, main, footer{padding-left:20px;padding-right:20px}
+      body{padding:18px}
+    }
+
+    /* Print */
+    @media print{
+      body{padding:8px}
+      header{background:none;color:black}
+      .container{box-shadow:none}
+    }
+    .custom li {
+        list-style-type: none; /* Removes the default bullet points */
+        padding-left: 1.5em; /* Adds space for the custom arrow */
+        position: relative; /* Allows positioning the pseudo-element relative to the list item */
+        margin-bottom: 0.5em; /* Optional: Adds some space between list items */
+    }
+
+    .custom li::before {
+        content: "→"; /* The arrow character. You can use any character or even an image */
+        position: absolute; /* Positions the arrow precisely */
+        left: 0; /* Aligns the arrow to the left of the list item text */
+        color: #1566bd; /* Optional: Changes the color of the arrow */
+        font-weight: bold; /* Optional: Makes the arrow bolder */
+    }
+    #mission{
+        color: rgb(235, 155, 5);
+        font-size: 20px;
+    }
+    .font p{
+        font-size: 18px;
+    }
+    .muted{
+     font-size: 19px;  
+     font-weight: 600; 
+    }
+    .section h2{
+        font-size: 25px;
+    }
+     .section p{
+        font-size: 22px;
+    }
+    footer{
+        font-size: 18px;
+    }   
+    .loan p{
+        font-size: 20px;
+        font-weight: 500;
+    }
+  .back-btn {
+  position: absolute;
+  left: 90px;
+  background: rgb(8, 8, 214);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.back-btn:hover {
+  opacity: 0.9;
+  background-color: rgb(7, 7, 220);
+  text-decoration: none;
+}
+
+
